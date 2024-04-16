@@ -1,0 +1,2510 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tarea &#8212; Serie de Tiempo</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Serie De Tiempo" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_uninorte.png" class="logo__image only-light" alt="Serie de Tiempo - Home"/>
+    <script>document.write(`<img src="_static/logo_uninorte.png" class="logo__image only-dark" alt="Serie de Tiempo - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Serie De Tiempo
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tarea</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/notebooks.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tarea</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-1">PUNTO 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-2">PUNTO 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-3">PUNTO 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-4">PUNTO 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-5">PUNTO 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-normalidad">TEST NORMALIDAD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-independencia">TEST DE INDEPENDENCIA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">CONCLUSIONES</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tarea">
+<h1>Tarea<a class="headerlink" href="#tarea" title="Link to this heading">#</a></h1>
+<p>KADIR ORTEGA - ELIANNA GOMEZ</p>
+<section id="punto-1">
+<h2>PUNTO 1<a class="headerlink" href="#punto-1" title="Link to this heading">#</a></h2>
+<p>Considere la <strong><code class="docutils literal notranslate"><span class="pre">serie</span> <span class="pre">de</span> <span class="pre">tiempo</span></code></strong> asociada con los futuros de la criptomoneda Bitcoin desde que comenzó a comercializarse hasta la fecha del día de hoy. Utilice la API de Yahoo Finance para obtener esta serie de tiempo.</p>
+</section>
+<section id="punto-2">
+<h2>PUNTO 2<a class="headerlink" href="#punto-2" title="Link to this heading">#</a></h2>
+<p>Repita TODOS los pasos indicados en esta sección para encontrar modelos ARIMA para predecir el precio de Bitcoin con los siguientes horizontes: 7, 14, 21 y 28 días. Utilizar siempre predicciones usando rolling con ventana de predicción continua de un día. Cualquier cantidad de pasos extra para enriquecer su análisis predictivo serán aceptados siempre y cuando sean acordes con lo que indica la teoría de análisis de series de tiempo.</p>
+<p><img alt="Bitcoin" src="_images/Bitcoin.png" /></p>
+<p>Website <a class="reference external" href="https://finance.yahoo.com/quote/BTC-USD">Yfinace</a></p>
+<p>IMPORTAMOS LIBRERIAS:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importamos Librerias</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools.sm_exceptions</span> <span class="kn">import</span> <span class="n">ConvergenceWarning</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">ConvergenceWarning</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<span class="kn">from</span> <span class="nn">yahoo_fin.stock_info</span> <span class="kn">import</span> <span class="n">get_data</span>
+<span class="kn">import</span> <span class="nn">pmdarima</span> <span class="k">as</span> <span class="nn">pm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_predict</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">shapiro</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.stattools</span> <span class="kn">import</span> <span class="n">durbin_watson</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning - Certain functionality 
+             requires requests_html, which is not installed.
+             
+             Install using: 
+             pip install requests_html
+             
+             After installation, you may have to restart your Python session.
+</pre></div>
+</div>
+</div>
+</div>
+<p>DESCARGAMOS LOS DATOS HISTORICO UTILIZANDO LA BIBLIOTECA <strong><code class="docutils literal notranslate"><span class="pre">yahoo_fin</span></code></strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bitcoin</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s2">&quot;BTC-USD&quot;</span><span class="p">)</span>
+<span class="n">hist</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+<span class="n">TotalDatahist</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hist</span><span class="p">)</span>
+<span class="n">stock</span> <span class="o">=</span> <span class="s1">&#39;BTC-USD&#39;</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="s1">&#39;1d&#39;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="n">end_date</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">TotalDatahist</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">date_format</span><span class="p">(</span><span class="n">date_h</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">date_h</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)</span>
+
+<span class="n">BTC_df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="n">resolution</span><span class="p">,</span> <span class="n">index_as_date</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">BTC_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>REALIZAMOS GRAFICO DE LA SERIE DE TIEMPO DEL BITCOIN</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">BTC_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/586fe31677b91cb0c907f2c654b1f14e380faee17227bcff0b11a72ce3f4d6de.png" src="_images/586fe31677b91cb0c907f2c654b1f14e380faee17227bcff0b11a72ce3f4d6de.png" />
+</div>
+</div>
+<p>GRAFICO DE VELA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bitcoin</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">Ticker</span><span class="p">(</span><span class="s2">&quot;BTC-USD&quot;</span><span class="p">)</span>
+
+<span class="n">hist</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Candlestick</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">hist</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                                     <span class="nb">open</span><span class="o">=</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">],</span>
+                                     <span class="n">high</span><span class="o">=</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">],</span>
+                                     <span class="n">low</span><span class="o">=</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">],</span>
+                                     <span class="n">close</span><span class="o">=</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">])])</span>
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Gráfica de Velas del Histórico de Bitcoin&#39;</span><span class="p">,</span>
+                  <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span>
+                  <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Precio en USD&#39;</span><span class="p">,</span>
+                  <span class="n">xaxis_rangeslider_visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>PRUEBA <strong><code class="docutils literal notranslate"><span class="pre">Dickey-Fuller</span></code></strong> - PRUEBA ESTADISTICA PARA VERIFICAR SI LA SERIE DE TIEMPO ES ESTACIONARIA O NO.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ADF Statistic: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-value: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">test_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
+
+<span class="n">adf_statistic</span> <span class="o">=</span> <span class="n">test_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">p_value</span> <span class="o">=</span> <span class="n">test_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">critical_values</span> <span class="o">=</span> <span class="n">test_result</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ADF Statistic: </span><span class="si">{</span><span class="n">adf_statistic</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">critical_values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Critical Value </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La serie es estacionaria.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La serie no es estacionaria.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ADF Statistic: -0.804356
+p-value: 0.817839
+ADF Statistic: -0.8043557298768268
+p-value: 0.8178392553499195
+Critical Value 1%: -3.4322364645313335
+Critical Value 5%: -2.862373532387402
+Critical Value 10%: -2.567213704163575
+La serie no es estacionaria.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos observar en el resultado que obtuvismo que la serie es no estacionaria, debido a que el p-value es mayor que <strong>5%</strong>.</p>
+<p>Dado que la serie del Bitcoin no es estacionaria procedemos al siguiente paso, que es diferenciar nuestra serie y realizamos graficos de autocorrelación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">)})</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Series&#39;</span><span class="p">)</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lags</span> <span class="o">=</span> <span class="mi">3400</span><span class="p">);</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">diff</span><span class="p">());</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;1st Order Differencing&#39;</span><span class="p">)</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lags</span> <span class="o">=</span> <span class="mi">3400</span><span class="p">);</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">());</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2st Order Differencing&#39;</span><span class="p">)</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">lags</span> <span class="o">=</span> <span class="mi">3400</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dcdd09db682d00e96fb8ad7ab3e363fa6f4d8b15abf5de846c0b8831bb4239e2.png" src="_images/dcdd09db682d00e96fb8ad7ab3e363fa6f4d8b15abf5de846c0b8831bb4239e2.png" />
+</div>
+</div>
+<p>Los gráficos de autocorrelación indican que el lag 1 es el único que está correlacionado con el lag 0. Los siguientes lags no superan el umbral de significancia.</p>
+<p>PREPARACION DE LOS DATOS DE ENTRENAMIENTO Y DATOS DE PRUEBA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_BTC</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">)</span> 
+<span class="n">n_test</span> <span class="o">=</span> <span class="mi">28</span> 
+<span class="n">train_size</span> <span class="o">=</span> <span class="n">n_BTC</span> <span class="o">-</span> <span class="n">n_test</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]</span>
+<span class="n">dates_train</span> <span class="o">=</span> <span class="n">BTC_df</span><span class="o">.</span><span class="n">date</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">BTC_df</span><span class="o">.</span><span class="n">close</span><span class="p">[</span><span class="n">train_size</span><span class="p">:</span><span class="n">train_size</span> <span class="o">+</span> <span class="n">n_test</span><span class="p">]</span>
+<span class="n">dates_test</span> <span class="o">=</span> <span class="n">BTC_df</span><span class="o">.</span><span class="n">date</span><span class="p">[</span><span class="n">train_size</span><span class="p">:</span><span class="n">train_size</span> <span class="o">+</span> <span class="n">n_test</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape:&quot;</span><span class="p">,</span> <span class="n">n_BTC</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape:&quot;</span><span class="p">,</span> <span class="n">train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test shape:&quot;</span><span class="p">,</span> <span class="n">test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">dates_train</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train shape: 3499
+train shape: (3471,)
+test shape: (28,)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      2014-09-17
+1      2014-09-18
+2      2014-09-19
+3      2014-09-20
+4      2014-09-21
+          ...    
+3466   2024-03-14
+3467   2024-03-15
+3468   2024-03-16
+3469   2024-03-17
+3470   2024-03-18
+Name: date, Length: 3471, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>CALCULAMOS EL MEJOR AIC Y LOS VALORES P, D, Q</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_aic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="n">best_bic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<span class="n">best_order</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">best_mdl</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">pq_rng</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">d_rng</span>  <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pq_rng</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_rng</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">pq_rng</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                
+                <span class="n">tmp_mdl</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+                <span class="n">tmp_aic</span> <span class="o">=</span> <span class="n">tmp_mdl</span><span class="o">.</span><span class="n">aic</span>
+                <span class="k">if</span> <span class="n">tmp_aic</span> <span class="o">&lt;</span> <span class="n">best_aic</span><span class="p">:</span>
+                    <span class="n">best_aic</span> <span class="o">=</span> <span class="n">tmp_aic</span>
+                    <span class="n">best_order</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">best_mdl</span> <span class="o">=</span> <span class="n">tmp_mdl</span>
+            <span class="k">except</span><span class="p">:</span> <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;aic: </span><span class="si">{:6.5f}</span><span class="s1"> | order: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">best_aic</span><span class="p">,</span> <span class="n">best_order</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aic: 56303.79791 | order: (4, 1, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos ver, el mejor orden de los valore P, D, Q elegidos son Arima(4,1,4)</p>
+<p>Implementación del Modelo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">best_order</span><span class="p">)</span>
+<span class="n">model_arima</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_arima</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  close   No. Observations:                 3471
+Model:                 ARIMA(4, 1, 4)   Log Likelihood              -28142.899
+Date:                Mon, 15 Apr 2024   AIC                          56303.798
+Time:                        18:25:55   BIC                          56359.165
+Sample:                             0   HQIC                         56323.566
+                               - 3471                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ar.L1         -1.0014      0.023    -43.454      0.000      -1.047      -0.956
+ar.L2         -0.3394      0.010    -34.884      0.000      -0.359      -0.320
+ar.L3         -1.0378      0.010   -106.985      0.000      -1.057      -1.019
+ar.L4         -0.8984      0.022    -41.487      0.000      -0.941      -0.856
+ma.L1          0.9595      0.027     35.720      0.000       0.907       1.012
+ma.L2          0.3076      0.010     31.301      0.000       0.288       0.327
+ma.L3          1.0332      0.010    104.911      0.000       1.014       1.052
+ma.L4          0.8735      0.026     34.071      0.000       0.823       0.924
+sigma2      6.563e+05   5878.822    111.641      0.000    6.45e+05    6.68e+05
+===================================================================================
+Ljung-Box (L1) (Q):                   0.63   Jarque-Bera (JB):             32376.75
+Prob(Q):                              0.43   Prob(JB):                         0.00
+Heteroskedasticity (H):             254.63   Skew:                            -0.12
+Prob(H) (two-sided):                  0.00   Kurtosis:                        17.96
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gráfica de residuos del modelo ARIMA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residualAic</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model_arima</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
+<span class="n">residualAic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aff2f79dff43874379daa3b9e824f650524970664f7c0b557db4d5393b1e72a9.png" src="_images/aff2f79dff43874379daa3b9e824f650524970664f7c0b557db4d5393b1e72a9.png" />
+</div>
+</div>
+<p>Los errores residuales parecen fluctuar alrededor de una media de cero y tienen una varianza uniforme.</p>
+<p>GRAFICAMOS EL AJUSTE DE NUESTRO MODELO <strong>ARIMA</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)})</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">();</span>
+<span class="n">plot_predict</span><span class="p">(</span><span class="n">model_arima</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8f75b11030cd318373610c1b862684141928b90f502ea55e87c198a15959b317.png" src="_images/8f75b11030cd318373610c1b862684141928b90f502ea55e87c198a15959b317.png" />
+</div>
+</div>
+<p>FUNCION PARA LAS PREDICIONES USANDO ROLLING FORECASTING PARA LOS HORIZONTES DE 7, 14, 21 Y 28 DÍAS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arima_rolling</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">horizon</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+   
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>  
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">best_order</span><span class="p">)</span>
+        <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">horizon</span><span class="p">)</span>
+        <span class="n">yhat</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+        
+        
+        <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>  
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;predicted=</span><span class="si">{</span><span class="n">yhat</span><span class="si">}</span><span class="s1">, expected=</span><span class="si">{</span><span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a lot more that you can do with outputs (such as including interactive outputs)
+with your book. For more information about this, see <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a></p>
+<p>PREDICIONES PARA LOS HORIZONTES DE 7, 14, 21 Y 28 DÍAS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_list</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>   
+<span class="n">test_list</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> 
+<span class="n">horizontes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>  
+
+<span class="n">predicciones_por_horizonte</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">horizontes</span><span class="p">:</span>
+    <span class="n">y_predict</span> <span class="o">=</span> <span class="n">arima_rolling</span><span class="p">(</span><span class="n">train_list</span><span class="p">,</span> <span class="n">test_list</span><span class="p">,</span> <span class="n">horizon</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">predicciones_por_horizonte</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_predict</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicciones para horizonte de </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> días: </span><span class="si">{</span><span class="n">y_predict</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=67440.09142332648, expected=61912.7734375
+predicted=61519.363058482275, expected=67913.671875
+predicted=67450.0178722883, expected=65491.390625
+predicted=65902.87979241333, expected=63778.76171875
+predicted=64095.847412581476, expected=64062.203125
+predicted=63597.78738057375, expected=67234.171875
+predicted=66977.71833493585, expected=69958.8125
+predicted=70029.1284200867, expected=69987.8359375
+predicted=69921.26731722837, expected=69455.34375
+predicted=69440.61758156569, expected=70744.953125
+predicted=70845.45637579926, expected=69892.828125
+predicted=69726.67685308737, expected=69645.3046875
+predicted=69681.39070497334, expected=71333.6484375
+predicted=71238.31577554984, expected=69702.1484375
+predicted=69883.77927621691, expected=65446.97265625
+predicted=65404.609049682964, expected=65980.8125
+predicted=65962.6533303559, expected=68508.84375
+predicted=68192.51992213874, expected=67837.640625
+predicted=67880.40072694229, expected=68896.109375
+predicted=69073.85788996144, expected=69362.5546875
+predicted=69783.55304217587, expected=71631.359375
+predicted=71754.79625461045, expected=69139.015625
+predicted=69108.28192988042, expected=70587.8828125
+predicted=70522.25188001963, expected=70060.609375
+predicted=69743.87857427546, expected=67195.8671875
+predicted=67118.43563163547, expected=63821.47265625
+predicted=63755.920252444696, expected=65738.7265625
+predicted=65728.49894713458, expected=63445.91796875
+Predicciones para horizonte de 7 días: [67440.09142332648, 61519.363058482275, 67450.0178722883, 65902.87979241333, 64095.847412581476, 63597.78738057375, 66977.71833493585, 70029.1284200867, 69921.26731722837, 69440.61758156569, 70845.45637579926, 69726.67685308737, 69681.39070497334, 71238.31577554984, 69883.77927621691, 65404.609049682964, 65962.6533303559, 68192.51992213874, 67880.40072694229, 69073.85788996144, 69783.55304217587, 71754.79625461045, 69108.28192988042, 70522.25188001963, 69743.87857427546, 67118.43563163547, 63755.920252444696, 65728.49894713458]
+predicted=67624.49430116087, expected=61912.7734375
+predicted=61106.73645056529, expected=67913.671875
+predicted=67475.86283029839, expected=65491.390625
+predicted=66170.58283484384, expected=63778.76171875
+predicted=64434.37147774059, expected=64062.203125
+predicted=63657.20528938497, expected=67234.171875
+predicted=66949.817583601, expected=69958.8125
+predicted=70146.93987184862, expected=69987.8359375
+predicted=69887.53720387087, expected=69455.34375
+predicted=69582.80300009777, expected=70744.953125
+predicted=70814.30810989169, expected=69892.828125
+predicted=69781.35983823477, expected=69645.3046875
+predicted=69718.5041278052, expected=71333.6484375
+predicted=71399.71036959227, expected=69702.1484375
+predicted=69969.02523008494, expected=65446.97265625
+predicted=65369.13890897459, expected=65980.8125
+predicted=65931.7324934019, expected=68508.84375
+predicted=68061.82016948827, expected=67837.640625
+predicted=67876.97872757919, expected=68896.109375
+predicted=69109.30205463612, expected=69362.5546875
+predicted=69782.95305332658, expected=71631.359375
+predicted=71490.03967761631, expected=69139.015625
+predicted=69106.76385260512, expected=70587.8828125
+predicted=70450.37981074414, expected=70060.609375
+predicted=70021.5621100698, expected=67195.8671875
+predicted=67051.58271783052, expected=63821.47265625
+predicted=63709.90450568026, expected=65738.7265625
+predicted=65397.951535794884, expected=63445.91796875
+Predicciones para horizonte de 14 días: [67624.49430116087, 61106.73645056529, 67475.86283029839, 66170.58283484384, 64434.37147774059, 63657.20528938497, 66949.817583601, 70146.93987184862, 69887.53720387087, 69582.80300009777, 70814.30810989169, 69781.35983823477, 69718.5041278052, 71399.71036959227, 69969.02523008494, 65369.13890897459, 65931.7324934019, 68061.82016948827, 67876.97872757919, 69109.30205463612, 69782.95305332658, 71490.03967761631, 69106.76385260512, 70450.37981074414, 70021.5621100698, 67051.58271783052, 63709.90450568026, 65397.951535794884]
+predicted=67767.05479866317, expected=61912.7734375
+predicted=61385.235489769504, expected=67913.671875
+predicted=67781.38519906596, expected=65491.390625
+predicted=66390.09323325075, expected=63778.76171875
+predicted=64773.804697824366, expected=64062.203125
+predicted=63770.92791005582, expected=67234.171875
+predicted=67074.83736546268, expected=69958.8125
+predicted=70183.3975171504, expected=69987.8359375
+predicted=69857.57852143735, expected=69455.34375
+predicted=69722.99049735625, expected=70744.953125
+predicted=70752.85011905867, expected=69892.828125
+predicted=69950.2536672365, expected=69645.3046875
+predicted=69714.5142164873, expected=71333.6484375
+predicted=71444.07797621265, expected=69702.1484375
+predicted=69817.56385130918, expected=65446.97265625
+predicted=65359.4456414706, expected=65980.8125
+predicted=65898.74890163161, expected=68508.84375
+predicted=68381.42890280046, expected=67837.640625
+predicted=67871.20217232779, expected=68896.109375
+predicted=69117.36806528956, expected=69362.5546875
+predicted=69578.51522480507, expected=71631.359375
+predicted=71418.40822376286, expected=69139.015625
+predicted=69122.7623851507, expected=70587.8828125
+predicted=70388.80161426104, expected=70060.609375
+predicted=70241.74409262906, expected=67195.8671875
+predicted=67010.94970526981, expected=63821.47265625
+predicted=63689.66729766588, expected=65738.7265625
+predicted=65487.128299678996, expected=63445.91796875
+Predicciones para horizonte de 21 días: [67767.05479866317, 61385.235489769504, 67781.38519906596, 66390.09323325075, 64773.804697824366, 63770.92791005582, 67074.83736546268, 70183.3975171504, 69857.57852143735, 69722.99049735625, 70752.85011905867, 69950.2536672365, 69714.5142164873, 71444.07797621265, 69817.56385130918, 65359.4456414706, 65898.74890163161, 68381.42890280046, 67871.20217232779, 69117.36806528956, 69578.51522480507, 71418.40822376286, 69122.7623851507, 70388.80161426104, 70241.74409262906, 67010.94970526981, 63689.66729766588, 65487.128299678996]
+predicted=67691.30570725372, expected=61912.7734375
+predicted=61137.93305424942, expected=67913.671875
+predicted=67874.7443078992, expected=65491.390625
+predicted=66570.68523636062, expected=63778.76171875
+predicted=65063.91322098072, expected=64062.203125
+predicted=63705.16335817706, expected=67234.171875
+predicted=67076.0932873959, expected=69958.8125
+predicted=70093.54413218072, expected=69987.8359375
+predicted=69821.63935544624, expected=69455.34375
+predicted=69722.44668841663, expected=70744.953125
+predicted=70782.92078951649, expected=69892.828125
+predicted=70013.202853841, expected=69645.3046875
+predicted=69656.77108063217, expected=71333.6484375
+predicted=71320.85765006205, expected=69702.1484375
+predicted=69766.61605046492, expected=65446.97265625
+predicted=65373.756441615216, expected=65980.8125
+predicted=65870.11788329568, expected=68508.84375
+predicted=68434.57498168215, expected=67837.640625
+predicted=67869.3025789077, expected=68896.109375
+predicted=69119.17986125135, expected=69362.5546875
+predicted=69680.5598028224, expected=71631.359375
+predicted=71551.06064541961, expected=69139.015625
+predicted=69145.08318237362, expected=70587.8828125
+predicted=70345.26346836233, expected=70060.609375
+predicted=70068.91918200954, expected=67195.8671875
+predicted=66994.41641205102, expected=63821.47265625
+predicted=63689.77517939315, expected=65738.7265625
+predicted=65754.20960818166, expected=63445.91796875
+Predicciones para horizonte de 28 días: [67691.30570725372, 61137.93305424942, 67874.7443078992, 66570.68523636062, 65063.91322098072, 63705.16335817706, 67076.0932873959, 70093.54413218072, 69821.63935544624, 69722.44668841663, 70782.92078951649, 70013.202853841, 69656.77108063217, 71320.85765006205, 69766.61605046492, 65373.756441615216, 65870.11788329568, 68434.57498168215, 67869.3025789077, 69119.17986125135, 69680.5598028224, 71551.06064541961, 69145.08318237362, 70345.26346836233, 70068.91918200954, 66994.41641205102, 63689.77517939315, 65754.20960818166]
+</pre></div>
+</div>
+</div>
+</div>
+<p>GRAFICAMOS LAS PREDICIONES OBTENIDAS</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">]</span>  
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">horizontes</span><span class="p">):</span>
+   
+    <span class="n">prediction_dates</span> <span class="o">=</span> <span class="n">dates_test</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones_por_horizonte</span><span class="p">[</span><span class="n">h</span><span class="p">])]</span>  
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">prediction_dates</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">predicciones_por_horizonte</span><span class="p">[</span><span class="n">h</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Prediciones </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> Días&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;MODELO ARIMA PARA VARIOS HORIZONTES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0b5eee80989ced30f1fc7b2d79ff8ddb6b3044ca89f8a056cba6d500054e6e07.png" src="_images/0b5eee80989ced30f1fc7b2d79ff8ddb6b3044ca89f8a056cba6d500054e6e07.png" />
+</div>
+</div>
+<p>Podemos ver que la predicciones tiene un comportamiento parecido a los datos originales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plt.style.use(&#39;seaborn&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span> <span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precio actual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_predict</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predicción con Modelo Arima&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Meses&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f58f16cac896bb3d7f7163586846b32b7d4ccbcadd35582bd1012c3dc5f4d5ea.png" src="_images/f58f16cac896bb3d7f7163586846b32b7d4ccbcadd35582bd1012c3dc5f4d5ea.png" />
+</div>
+</div>
+<p>Función para evaluar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluacion_metrica</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span> 
+        <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_true</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">y_true</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Evaluation metric results:-&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MSE is : </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAE is : </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;RMSE is : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAPE is : </span><span class="si">{</span><span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R2 is : </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="w"> </span><span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluamos Metricas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evaluacion_metrica</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">y_predict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Evaluation metric results:-
+MSE is : 6756806.795552885
+MAE is : 2039.8982907386312
+RMSE is : 2599.3858496869766
+MAPE is : 3.057729038577908
+R2 is : 0.03943360813183172
+</pre></div>
+</div>
+</div>
+</div>
+<p>Guardemos los datos, para luego hacer unas comparaciones con los demás modelos.</p>
+</section>
+<section id="punto-3">
+<h2>PUNTO 3<a class="headerlink" href="#punto-3" title="Link to this heading">#</a></h2>
+<p>Repita el paso 2 ahora sin utilizar rolling. Esto es, realice el pronóstico solo utilizando forecast() para los diferentes horizontes de predicción, 7, 14, 21 y 28 días.</p>
+<p>Aplicamos el bucle <strong>FOR</strong> para realizar predicciones con los diferentes horizontes de tiempo usando el modelo ARIMA ya entrenado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizontes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">dias</span> <span class="ow">in</span> <span class="n">horizontes</span><span class="p">:</span>
+    <span class="n">y_forecast</span> <span class="o">=</span> <span class="n">model_arima</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">dias</span><span class="p">)</span>
+    <span class="n">predictions</span><span class="p">[</span><span class="n">dias</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_forecast</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicciones para </span><span class="si">{</span><span class="n">dias</span><span class="si">}</span><span class="s2"> días: </span><span class="si">{</span><span class="n">y_forecast</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">y_predFore</span> <span class="o">=</span> <span class="n">predictions</span><span class="p">[</span><span class="n">dias</span><span class="p">]</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicciones para 7 días: 3471    67667.256910
+3472    67599.041186
+3473    67586.561463
+3474    67781.741749
+3475    67554.709514
+3476    67790.046742
+3477    67440.091423
+Name: predicted_mean, dtype: float64
+Predicciones para 14 días: 3471    67667.256910
+3472    67599.041186
+3473    67586.561463
+3474    67781.741749
+3475    67554.709514
+3476    67790.046742
+3477    67440.091423
+3478    67770.922386
+3479    67518.146572
+3480    67810.741407
+3481    67574.598869
+3482    67676.867053
+3483    67578.047855
+3484    67624.494301
+Name: predicted_mean, dtype: float64
+Predicciones para 21 días: 3471    67667.256910
+3472    67599.041186
+3473    67586.561463
+3474    67781.741749
+3475    67554.709514
+3476    67790.046742
+3477    67440.091423
+3478    67770.922386
+3479    67518.146572
+3480    67810.741407
+3481    67574.598869
+3482    67676.867053
+3483    67578.047855
+3484    67624.494301
+3485    67717.544372
+3486    67619.274753
+3487    67726.675085
+3488    67514.182240
+3489    67708.906941
+3490    67562.861834
+3491    67767.054799
+Name: predicted_mean, dtype: float64
+Predicciones para 28 días: 3471    67667.256910
+3472    67599.041186
+3473    67586.561463
+3474    67781.741749
+3475    67554.709514
+3476    67790.046742
+3477    67440.091423
+3478    67770.922386
+3479    67518.146572
+3480    67810.741407
+3481    67574.598869
+3482    67676.867053
+3483    67578.047855
+3484    67624.494301
+3485    67717.544372
+3486    67619.274753
+3487    67726.675085
+3488    67514.182240
+3489    67708.906941
+3490    67562.861834
+3491    67767.054799
+3492    67600.965386
+3493    67674.601729
+3494    67576.532504
+3495    67638.665728
+3496    67682.530184
+3497    67653.135741
+3498    67691.305707
+Name: predicted_mean, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Código para realizar predicciones manualmente con los diferentes horizontes de tiempo usando el modelo ARIMA ya entrenado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates_start</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">BTC_df</span><span class="o">.</span><span class="n">date</span><span class="p">[:</span><span class="n">train_size</span><span class="p">])</span>
+
+<span class="n">dates_predict7</span> <span class="o">=</span> <span class="n">dates_start</span> <span class="o">+</span> <span class="mi">7</span>
+<span class="n">dates_predict14</span> <span class="o">=</span> <span class="n">dates_start</span> <span class="o">+</span> <span class="mi">14</span>
+<span class="n">dates_predict21</span> <span class="o">=</span> <span class="n">dates_start</span> <span class="o">+</span> <span class="mi">21</span>
+<span class="n">dates_predict28</span> <span class="o">=</span> <span class="n">dates_start</span> <span class="o">+</span> <span class="mi">28</span>
+
+<span class="n">arima_pred7</span> <span class="o">=</span> <span class="n">model_arima</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">dates_start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">dates_predict7</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">&quot;levels&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;ARIMA Predictions&quot;</span><span class="p">)</span>
+<span class="n">arima_pred14</span> <span class="o">=</span> <span class="n">model_arima</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">dates_start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">dates_predict14</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">&quot;levels&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;ARIMA Predictions&quot;</span><span class="p">)</span>
+<span class="n">arima_pred21</span> <span class="o">=</span> <span class="n">model_arima</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">dates_start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">dates_predict21</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">&quot;levels&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;ARIMA Predictions&quot;</span><span class="p">)</span>
+<span class="n">arima_pred28</span> <span class="o">=</span> <span class="n">model_arima</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">dates_start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">dates_predict28</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="s2">&quot;levels&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;ARIMA Predictions&quot;</span><span class="p">)</span>
+
+<span class="n">arima_pred28</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3471    67667.256910
+3472    67599.041186
+3473    67586.561463
+3474    67781.741749
+3475    67554.709514
+3476    67790.046742
+3477    67440.091423
+3478    67770.922386
+3479    67518.146572
+3480    67810.741407
+3481    67574.598869
+3482    67676.867053
+3483    67578.047855
+3484    67624.494301
+3485    67717.544372
+3486    67619.274753
+3487    67726.675085
+3488    67514.182240
+3489    67708.906941
+3490    67562.861834
+3491    67767.054799
+3492    67600.965386
+3493    67674.601729
+3494    67576.532504
+3495    67638.665728
+3496    67682.530184
+3497    67653.135741
+3498    67691.305707
+3499    67561.714319
+Name: ARIMA Predictions, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora graficamos los datos de entrenamiento, los datos de prueba y las prediciones obtenida por cada horizonte</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="c1"># Graficar los datos de entrenamiento y prueba</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># Graficar las predicciones para cada horizonte</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">]</span>  <span class="c1"># Colores para los diferentes horizontes</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">horizontes</span><span class="p">):</span>
+  
+    <span class="n">prediction_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">dates_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">h</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">prediction_dates</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">predictions</span><span class="p">[</span><span class="n">h</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Prediciones </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> Días&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;MODELO ARIMA PREDICCIONES VARIOS HORIZONTES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/15516f5d7d4df52347fca069fe3b61a43a9de189d9262582ba9ff6ae6c0baf92.png" src="_images/15516f5d7d4df52347fca069fe3b61a43a9de189d9262582ba9ff6ae6c0baf92.png" />
+</div>
+</div>
+<p>La gráfica muestra que las predicciones del modelo ARIMA no siguen la tendencia de los datos de prueba</p>
+<p>Realizamos la grafica solo con los datos de prueba y las predicciones obtenidas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span> <span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precio actual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arima_pred7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Gray&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicciones 7días&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arima_pred14</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicciones 14 días&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arima_pred21</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;Yellow&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicciones 21 días&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arima_pred28</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicciones 28 días&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predicción con Modelo Arima&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Meses&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b23647c418adb306defbd1a506beb144d756088deaa4fd69a7440266b64de380.png" src="_images/b23647c418adb306defbd1a506beb144d756088deaa4fd69a7440266b64de380.png" />
+</div>
+</div>
+<p>En conclusión vemos que el metodo de predicción rolling forecasting predicce mucho mejor que solo utilizando <strong><code class="docutils literal notranslate"><span class="pre">forecast()</span></code></strong>, Esto debido a que el modelo se recalibra constantemente con la información más reciente. Esto permite que el modelo se adapte mejor a cambios recientes en la tendencia o en la volatilidad, que pueden ser muy frecuentes en series temporales financieras como las del Bitcoin.</p>
+</section>
+<section id="punto-4">
+<h2>PUNTO 4<a class="headerlink" href="#punto-4" title="Link to this heading">#</a></h2>
+<p>Realice tablas de error para los ítems 1 y 2, utilizando las métricas: MAPE, MAE, RMSE, MSE, R2. Además, agregue el gráfico de correlación entre la observación real y su predicción en el test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forecast_accuracy</span><span class="p">(</span><span class="n">forecast</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="n">str_name</span><span class="p">):</span>
+    
+    <span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">forecast</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span> <span class="c1"># MAPE</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">forecast</span> <span class="o">-</span> <span class="n">actual</span><span class="p">))</span>                 <span class="c1"># MAE</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">forecast</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">.5</span>               <span class="c1"># RMSE</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">forecast</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>                    <span class="c1"># MSE</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">forecast</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+    
+    <span class="n">df_acc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mae</span><span class="p">],</span>
+                           <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mse</span><span class="p">],</span>
+                           <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">mape</span><span class="p">],</span>
+                           <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">rmse</span><span class="p">],</span>
+                           <span class="s1">&#39;R2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">r2</span><span class="p">]},</span>
+                          <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">str_name</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">df_acc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forecast_accuracy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_predict</span><span class="p">),</span> <span class="s2">&quot;week 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>MAPE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>week 1</th>
+      <td>2039.898291</td>
+      <td>6.756807e+06</td>
+      <td>0.030497</td>
+      <td>2599.38585</td>
+      <td>0.039434</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El R² es bastante bajo, lo que indica que el modelo explica solo un 3.94% de la variabilidad de los datos objetivo
+Con el metodo rolling forecasting tenemos errores aceptables, lo cual indica que hay espacio para mejorar el modelo, posiblemente mediante la exploración de diferentes enfoques en la modelización</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_predict</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlación Rolling Forecasting&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores Reales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicciones&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicciones&#39;)
+</pre></div>
+</div>
+<img alt="_images/175da6a10c13c79486dccca0f8714aebb87f0890d920c1b929415118bdc0ce81.png" src="_images/175da6a10c13c79486dccca0f8714aebb87f0890d920c1b929415118bdc0ce81.png" />
+</div>
+</div>
+<p>El gráfico nos muestra puntos dispersos lejos de la línea indican predicciones inexactas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forecast_accuracy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_predFore</span><span class="p">),</span> <span class="s2">&quot;week 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>MAPE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>week 1</th>
+      <td>2328.840481</td>
+      <td>7.120628e+06</td>
+      <td>0.034422</td>
+      <td>2668.45052</td>
+      <td>-0.012288</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como tenemos horizontes de predicción pequeños aumenta el error de medición o las inexactitudes lo que lleva a un peor rendimiento del modelo y valores de R² negativos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_predFore</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlación Forecast&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores Reales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicciones&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicciones&#39;)
+</pre></div>
+</div>
+<img alt="_images/911e028097269b62bfd159f601ded70a60a27b54c4ce0bc991a73f24600e78fa.png" src="_images/911e028097269b62bfd159f601ded70a60a27b54c4ce0bc991a73f24600e78fa.png" />
+</div>
+</div>
+<p>El gráfico nos muestra puntos dispersos lejos de la línea indican predicciones inexactas.</p>
+</section>
+<section id="punto-5">
+<h2>PUNTO 5<a class="headerlink" href="#punto-5" title="Link to this heading">#</a></h2>
+<p>Repita el análisis desarrollado en los pasos anteriores, considerando ahora el criterio de inferencia Bayesiana (BIC) y el criterio de información de Hannan–Quinn (HQIC) para encontrar el mejor modelo ARIMA y, compare los errores con aquellos obtenidos con el criterio de Akaike.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_bic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="n">best_orderbic</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">best_mdl</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">pq_rng</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  
+<span class="n">d_rng</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pq_rng</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_rng</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">pq_rng</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Testing model ARIMA(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="n">tmp_mdl</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+                <span class="n">tmp_bic</span> <span class="o">=</span> <span class="n">tmp_mdl</span><span class="o">.</span><span class="n">bic</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model BIC: </span><span class="si">{</span><span class="n">tmp_bic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">tmp_bic</span> <span class="o">&lt;</span> <span class="n">best_bic</span><span class="p">:</span>
+                    <span class="n">best_bic</span> <span class="o">=</span> <span class="n">tmp_bic</span>
+                    <span class="n">best_orderbic</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">best_mdl</span> <span class="o">=</span> <span class="n">tmp_mdl</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to fit ARIMA(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best BIC: </span><span class="si">{</span><span class="n">best_bic</span><span class="si">}</span><span class="s2"> with order </span><span class="si">{</span><span class="n">best_orderbic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Testing model ARIMA(0, 0, 0)
+Model BIC: 102301.68967062836
+Testing model ARIMA(0, 0, 1)
+Model BIC: 72906.91930803745
+Testing model ARIMA(0, 0, 2)
+Model BIC: 69226.83082105401
+Testing model ARIMA(0, 0, 3)
+Model BIC: 66552.48456220613
+Testing model ARIMA(0, 0, 4)
+Model BIC: 71814.30009550662
+Testing model ARIMA(0, 1, 0)
+Model BIC: 56345.06027194312
+Testing model ARIMA(0, 1, 1)
+Model BIC: 56349.54054771649
+Testing model ARIMA(0, 1, 2)
+Model BIC: 56354.82320313497
+Testing model ARIMA(0, 1, 3)
+Model BIC: 56361.482219692916
+Testing model ARIMA(0, 1, 4)
+Model BIC: 56365.62829440369
+Testing model ARIMA(0, 2, 0)
+Model BIC: 58847.913161273755
+Testing model ARIMA(0, 2, 1)
+Model BIC: 56343.53343502409
+Testing model ARIMA(0, 2, 2)
+Model BIC: 56347.9632335511
+Testing model ARIMA(0, 2, 3)
+Model BIC: 56353.303773564294
+Testing model ARIMA(0, 2, 4)
+Model BIC: 56359.991794273636
+Testing model ARIMA(1, 0, 0)
+Model BIC: 56384.42755979595
+Testing model ARIMA(1, 0, 1)
+Model BIC: 56388.928732180604
+Testing model ARIMA(1, 0, 2)
+Model BIC: 56394.1565078071
+Testing model ARIMA(1, 0, 3)
+Model BIC: 56400.76901619578
+Testing model ARIMA(1, 0, 4)
+Model BIC: 56408.683298267715
+Testing model ARIMA(1, 1, 0)
+Model BIC: 56349.330284119955
+Testing model ARIMA(1, 1, 1)
+Model BIC: 56356.16247487379
+Testing model ARIMA(1, 1, 2)
+Model BIC: 56357.621964701626
+Testing model ARIMA(1, 1, 3)
+Model BIC: 56365.43672162707
+Testing model ARIMA(1, 1, 4)
+Model BIC: 56372.66502403334
+Testing model ARIMA(1, 2, 0)
+Model BIC: 57712.114655264886
+Testing model ARIMA(1, 2, 1)
+Model BIC: 56347.75846850024
+Testing model ARIMA(1, 2, 2)
+Model BIC: 56355.5426775209
+Testing model ARIMA(1, 2, 3)
+Model BIC: 56364.271806329285
+Testing model ARIMA(1, 2, 4)
+Model BIC: 56368.727308345355
+Testing model ARIMA(2, 0, 0)
+Model BIC: 56388.747139946616
+Testing model ARIMA(2, 0, 1)
+Model BIC: 56400.63602698618
+Testing model ARIMA(2, 0, 2)
+Model BIC: 56395.84501494252
+Testing model ARIMA(2, 0, 3)
+Model BIC: 56402.90557695247
+Testing model ARIMA(2, 0, 4)
+Model BIC: 56412.73398479048
+Testing model ARIMA(2, 1, 0)
+Model BIC: 56354.92407292052
+Testing model ARIMA(2, 1, 1)
+Model BIC: 56357.43263451361
+Testing model ARIMA(2, 1, 2)
+Model BIC: 56364.48611104077
+Testing model ARIMA(2, 1, 3)
+Model BIC: 56373.63659841065
+Testing model ARIMA(2, 1, 4)
+Model BIC: 56359.54802293338
+Testing model ARIMA(2, 2, 0)
+Model BIC: 57285.357923781456
+Testing model ARIMA(2, 2, 1)
+Model BIC: 56353.418736833715
+Testing model ARIMA(2, 2, 2)
+Model BIC: 56364.123988032195
+Testing model ARIMA(2, 2, 3)
+Model BIC: 56372.144447984436
+Testing model ARIMA(2, 2, 4)
+Model BIC: 56356.97312771271
+Testing model ARIMA(3, 0, 0)
+Model BIC: 56394.2562033454
+Testing model ARIMA(3, 0, 1)
+Model BIC: 56404.87905919971
+Testing model ARIMA(3, 0, 2)
+Model BIC: 56411.07955241835
+Testing model ARIMA(3, 0, 3)
+Model BIC: 56412.43297207152
+Testing model ARIMA(3, 0, 4)
+Model BIC: 56416.61583517629
+Testing model ARIMA(3, 1, 0)
+Model BIC: 56361.37652814717
+Testing model ARIMA(3, 1, 1)
+Model BIC: 56365.47947128973
+Testing model ARIMA(3, 1, 2)
+Model BIC: 56373.71894670983
+Testing model ARIMA(3, 1, 3)
+Model BIC: 56381.669912949066
+Testing model ARIMA(3, 1, 4)
+Model BIC: 56372.88556750007
+Testing model ARIMA(3, 2, 0)
+Model BIC: 57044.880407906116
+Testing model ARIMA(3, 2, 1)
+Model BIC: 56359.914721897265
+Testing model ARIMA(3, 2, 2)
+Model BIC: 56368.71635551893
+Testing model ARIMA(3, 2, 3)
+Model BIC: 56357.78990149461
+Testing model ARIMA(3, 2, 4)
+Model BIC: 56360.73761830974
+Testing model ARIMA(4, 0, 0)
+Model BIC: 56400.67740960091
+Testing model ARIMA(4, 0, 1)
+Model BIC: 56408.565485291925
+Testing model ARIMA(4, 0, 2)
+Model BIC: 56413.813958907245
+Testing model ARIMA(4, 0, 3)
+Model BIC: 56406.715977120075
+Testing model ARIMA(4, 0, 4)
+Model BIC: 56415.40626836443
+Testing model ARIMA(4, 1, 0)
+Model BIC: 56366.21103752791
+Testing model ARIMA(4, 1, 1)
+Model BIC: 56372.80364994479
+Testing model ARIMA(4, 1, 2)
+Model BIC: 56380.64516670455
+Testing model ARIMA(4, 1, 3)
+Model BIC: 56389.48739873692
+Testing model ARIMA(4, 1, 4)
+Model BIC: 56359.1650983875
+Testing model ARIMA(4, 2, 0)
+Model BIC: 56905.54338615275
+Testing model ARIMA(4, 2, 1)
+Model BIC: 56364.8078762023
+Testing model ARIMA(4, 2, 2)
+Model BIC: 56376.22210495972
+Testing model ARIMA(4, 2, 3)
+Model BIC: 56390.549447106496
+Testing model ARIMA(4, 2, 4)
+Model BIC: 56368.406846002785
+Best BIC: 56343.53343502409 with order (0, 2, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos ver, el mejor orden de los valore P, D, Q elegidos son Arima(0,2,1)</p>
+<p>Implementamos el modelos con los valores obtenidos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modelBic</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">best_orderbic</span><span class="p">)</span>
+<span class="n">model_arimaBic</span> <span class="o">=</span> <span class="n">modelBic</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_arimaBic</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  close   No. Observations:                 3471
+Model:                 ARIMA(0, 2, 1)   Log Likelihood              -28163.615
+Date:                Mon, 15 Apr 2024   AIC                          56331.230
+Time:                        18:33:56   BIC                          56343.533
+Sample:                             0   HQIC                         56335.623
+                               - 3471                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ma.L1         -0.9997      0.001   -899.759      0.000      -1.002      -0.998
+sigma2      6.588e+05   5422.737    121.486      0.000    6.48e+05    6.69e+05
+===================================================================================
+Ljung-Box (L1) (Q):                   4.10   Jarque-Bera (JB):             34135.25
+Prob(Q):                              0.04   Prob(JB):                         0.00
+Heteroskedasticity (H):             264.71   Skew:                            -0.10
+Prob(H) (two-sided):                  0.00   Kurtosis:                        18.37
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gráfica de residuos del modelo ARIMA BIC</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de línea de errores residuales</span>
+<span class="n">residualBic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model_arimaBic</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
+<span class="n">residualBic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ba20a222afa82b5b89f80760f9691d489a8f180c824aa3f8f04476bcba867b65.png" src="_images/ba20a222afa82b5b89f80760f9691d489a8f180c824aa3f8f04476bcba867b65.png" />
+</div>
+</div>
+<p>Los errores residuales parecen fluctuar alrededor de una media de cero y tienen una varianza uniforme.</p>
+<p>Función ARIMA Rolling</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arimabic_rolling</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">horizon</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+   
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>  
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">best_orderbic</span><span class="p">)</span>
+        <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">horizon</span><span class="p">)</span>
+        <span class="n">yhat</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+        
+        
+        <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>  
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;predicted=</span><span class="si">{</span><span class="n">yhat</span><span class="si">}</span><span class="s1">, expected=</span><span class="si">{</span><span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Código para las predicciones por cada Horizonte</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_list</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> 
+<span class="n">test_list</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  
+<span class="n">horizontes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span> 
+
+<span class="n">predicciones_por_horizontebic</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">horizontes</span><span class="p">:</span>
+    <span class="n">y_predictbic</span> <span class="o">=</span> <span class="n">arimabic_rolling</span><span class="p">(</span><span class="n">train_list</span><span class="p">,</span> <span class="n">test_list</span><span class="p">,</span> <span class="n">horizon</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">predicciones_por_horizontebic</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_predictbic</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicciones para horizonte de </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> días: </span><span class="si">{</span><span class="n">y_predictbic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=67707.83091781083, expected=61912.7734375
+predicted=62060.80187901603, expected=67913.671875
+predicted=68071.49887314321, expected=65491.390625
+predicted=65644.61486821431, expected=63778.76171875
+predicted=63928.164351559804, expected=64062.203125
+predicted=64212.224572789644, expected=67234.171875
+predicted=67392.73737132354, expected=69958.8125
+predicted=70122.28235554753, expected=69987.8359375
+predicted=70151.17012612573, expected=69455.34375
+predicted=69617.16671664783, expected=70744.953125
+predicted=70910.46835605211, expected=69892.828125
+predicted=70055.77196795541, expected=69645.3046875
+predicted=69810.25485769415, expected=71333.6484375
+predicted=71500.40580771529, expected=69702.1484375
+predicted=69866.88956231177, expected=65446.97265625
+predicted=65602.17444115417, expected=65980.8125
+predicted=66136.9476939274, expected=68508.84375
+predicted=68671.93657120068, expected=67837.640625
+predicted=67999.30520469743, expected=68896.109375
+predicted=69060.32300987653, expected=69362.5546875
+predicted=69528.03398448593, expected=71631.359375
+predicted=71804.0113416992, expected=69139.015625
+predicted=69303.77458323352, expected=70587.8828125
+predicted=70756.4091576516, expected=70060.609375
+predicted=70227.50069025508, expected=67195.8671875
+predicted=67355.49197664841, expected=63821.47265625
+predicted=63972.58928222046, expected=65738.7265625
+predicted=65894.71659992266, expected=63445.91796875
+Predicciones para horizonte de 7 días: [67707.83091781083, 62060.80187901603, 68071.49887314321, 65644.61486821431, 63928.164351559804, 64212.224572789644, 67392.73737132354, 70122.28235554753, 70151.17012612573, 69617.16671664783, 70910.46835605211, 70055.77196795541, 69810.25485769415, 71500.40580771529, 69866.88956231177, 65602.17444115417, 66136.9476939274, 68671.93657120068, 67999.30520469743, 69060.32300987653, 69528.03398448593, 71804.0113416992, 69303.77458323352, 70756.4091576516, 70227.50069025508, 67355.49197664841, 63972.58928222046, 65894.71659992266]
+predicted=67867.06808562166, expected=61912.7734375
+predicted=62208.830320532055, expected=67913.671875
+predicted=68229.3258712864, expected=65491.390625
+predicted=65797.83911142864, expected=63778.76171875
+predicted=64077.56698436961, expected=64062.203125
+predicted=64362.24602057928, expected=67234.171875
+predicted=67551.30286764709, expected=69958.8125
+predicted=70285.75221109507, expected=69987.8359375
+predicted=70314.50431475145, expected=69455.34375
+predicted=69778.98968329566, expected=70744.953125
+predicted=71075.98358710422, expected=69892.828125
+predicted=70218.71581091083, expected=69645.3046875
+predicted=69975.20502788831, expected=71333.6484375
+predicted=71667.16317793058, expected=69702.1484375
+predicted=70031.63068712354, expected=65446.97265625
+predicted=65757.37622605835, expected=65980.8125
+predicted=66293.0828878548, expected=68508.84375
+predicted=68835.02939240137, expected=67837.640625
+predicted=68160.96978439487, expected=68896.109375
+predicted=69224.53664475307, expected=69362.5546875
+predicted=69693.51328147185, expected=71631.359375
+predicted=71976.6633083984, expected=69139.015625
+predicted=69468.53354146706, expected=70587.8828125
+predicted=70924.93550280319, expected=70060.609375
+predicted=70394.39200551016, expected=67195.8671875
+predicted=67515.11676579682, expected=63821.47265625
+predicted=64123.70590819093, expected=65738.7265625
+predicted=66050.70663734531, expected=63445.91796875
+Predicciones para horizonte de 14 días: [67867.06808562166, 62208.830320532055, 68229.3258712864, 65797.83911142864, 64077.56698436961, 64362.24602057928, 67551.30286764709, 70285.75221109507, 70314.50431475145, 69778.98968329566, 71075.98358710422, 70218.71581091083, 69975.20502788831, 71667.16317793058, 70031.63068712354, 65757.37622605835, 66293.0828878548, 68835.02939240137, 68160.96978439487, 69224.53664475307, 69693.51328147185, 71976.6633083984, 69468.53354146706, 70924.93550280319, 70394.39200551016, 67515.11676579682, 64123.70590819093, 66050.70663734531]
+predicted=68026.3052534325, expected=61912.7734375
+predicted=62356.85876204808, expected=67913.671875
+predicted=68387.1528694296, expected=65491.390625
+predicted=65951.06335464296, expected=63778.76171875
+predicted=64226.96961717941, expected=64062.203125
+predicted=64512.26746836892, expected=67234.171875
+predicted=67709.86836397063, expected=69958.8125
+predicted=70449.2220666426, expected=69987.8359375
+predicted=70477.83850337718, expected=69455.34375
+predicted=69940.81264994349, expected=70744.953125
+predicted=71241.49881815632, expected=69892.828125
+predicted=70381.65965386624, expected=69645.3046875
+predicted=70140.15519808247, expected=71333.6484375
+predicted=71833.92054814586, expected=69702.1484375
+predicted=70196.37181193531, expected=65446.97265625
+predicted=65912.57801096252, expected=65980.8125
+predicted=66449.21808178221, expected=68508.84375
+predicted=68998.12221360205, expected=67837.640625
+predicted=68322.6343640923, expected=68896.109375
+predicted=69388.7502796296, expected=69362.5546875
+predicted=69858.99257845778, expected=71631.359375
+predicted=72149.31527509762, expected=69139.015625
+predicted=69633.29249970059, expected=70587.8828125
+predicted=71093.46184795478, expected=70060.609375
+predicted=70561.28332076524, expected=67195.8671875
+predicted=67674.74155494523, expected=63821.47265625
+predicted=64274.8225341614, expected=65738.7265625
+predicted=66206.69667476797, expected=63445.91796875
+Predicciones para horizonte de 21 días: [68026.3052534325, 62356.85876204808, 68387.1528694296, 65951.06335464296, 64226.96961717941, 64512.26746836892, 67709.86836397063, 70449.2220666426, 70477.83850337718, 69940.81264994349, 71241.49881815632, 70381.65965386624, 70140.15519808247, 71833.92054814586, 70196.37181193531, 65912.57801096252, 66449.21808178221, 68998.12221360205, 68322.6343640923, 69388.7502796296, 69858.99257845778, 72149.31527509762, 69633.29249970059, 71093.46184795478, 70561.28332076524, 67674.74155494523, 64274.8225341614, 66206.69667476797]
+predicted=68185.54242124333, expected=61912.7734375
+predicted=62504.88720356411, expected=67913.671875
+predicted=68544.9798675728, expected=65491.390625
+predicted=66104.28759785728, expected=63778.76171875
+predicted=64376.37224998922, expected=64062.203125
+predicted=64662.288916158555, expected=67234.171875
+predicted=67868.43386029417, expected=69958.8125
+predicted=70612.69192219013, expected=69987.8359375
+predicted=70641.1726920029, expected=69455.34375
+predicted=70102.63561659132, expected=70744.953125
+predicted=71407.01404920843, expected=69892.828125
+predicted=70544.60349682166, expected=69645.3046875
+predicted=70305.10536827664, expected=71333.6484375
+predicted=72000.67791836115, expected=69702.1484375
+predicted=70361.11293674709, expected=65446.97265625
+predicted=66067.77979586669, expected=65980.8125
+predicted=66605.35327570961, expected=68508.84375
+predicted=69161.21503480274, expected=67837.640625
+predicted=68484.29894378973, expected=68896.109375
+predicted=69552.96391450614, expected=69362.5546875
+predicted=70024.4718754437, expected=71631.359375
+predicted=72321.96724179682, expected=69139.015625
+predicted=69798.05145793413, expected=70587.8828125
+predicted=71261.98819310637, expected=70060.609375
+predicted=70728.17463602033, expected=67195.8671875
+predicted=67834.36634409364, expected=63821.47265625
+predicted=64425.93916013187, expected=65738.7265625
+predicted=66362.68671219063, expected=63445.91796875
+Predicciones para horizonte de 28 días: [68185.54242124333, 62504.88720356411, 68544.9798675728, 66104.28759785728, 64376.37224998922, 64662.288916158555, 67868.43386029417, 70612.69192219013, 70641.1726920029, 70102.63561659132, 71407.01404920843, 70544.60349682166, 70305.10536827664, 72000.67791836115, 70361.11293674709, 66067.77979586669, 66605.35327570961, 69161.21503480274, 68484.29894378973, 69552.96391450614, 70024.4718754437, 72321.96724179682, 69798.05145793413, 71261.98819310637, 70728.17463602033, 67834.36634409364, 64425.93916013187, 66362.68671219063]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora graficamos los datos de entrenamiento, los datos de prueba y las prediciones obtenida por cada horizonte</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">]</span>  
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">horizontes</span><span class="p">):</span>
+   
+    <span class="n">prediction_dates</span> <span class="o">=</span> <span class="n">dates_test</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones_por_horizontebic</span><span class="p">[</span><span class="n">h</span><span class="p">])]</span>  
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">prediction_dates</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">predicciones_por_horizontebic</span><span class="p">[</span><span class="n">h</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Predicciones </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> Días&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;MODELO ARIMA PARA VARIOS HORIZONTES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/59bffb2b7b6db16085003352e7e123acea619a277f0287cb6a46d3e278caafe0.png" src="_images/59bffb2b7b6db16085003352e7e123acea619a277f0287cb6a46d3e278caafe0.png" />
+</div>
+</div>
+<p>Podemos ver que la predicciones tiene un comportamiento parecido a los datos originales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forecast_accuracy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_predictbic</span><span class="p">),</span> <span class="s2">&quot;week 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>MAPE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>week 1</th>
+      <td>2057.744925</td>
+      <td>6.764252e+06</td>
+      <td>0.030186</td>
+      <td>2600.817539</td>
+      <td>0.038375</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El R² es bastante bajo, lo que indica que el modelo explica solo un 3.83% de la variabilidad de los datos objetivo.</p>
+<p>Con el metodo rolling forecasting tenemos errores aceptables, lo cual indica que hay espacio para mejorar el modelo, posiblemente mediante la exploración de diferentes enfoques en la modelización</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_predictbic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlación BIC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores Reales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicciones&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicciones&#39;)
+</pre></div>
+</div>
+<img alt="_images/e7c0ab93d8344470c47b3b5b1b0ca771fc037744c55e0a2aeadee5ac53b41714.png" src="_images/e7c0ab93d8344470c47b3b5b1b0ca771fc037744c55e0a2aeadee5ac53b41714.png" />
+</div>
+</div>
+<p>El gráfico nos muestra puntos dispersos lejos de la línea indican predicciones inexactas.</p>
+<p>Código para calcular el mejor HQIC y el mejor orden de los valores P, D, Q</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_hqic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="n">best_orderhqic</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">best_mdl</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">pq_rng</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  
+<span class="n">d_rng</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>   
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pq_rng</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_rng</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">pq_rng</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Testing model ARIMA(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+                <span class="n">tmp_mdl</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+                <span class="n">tmp_hqic</span> <span class="o">=</span> <span class="n">tmp_mdl</span><span class="o">.</span><span class="n">hqic</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model HQIC: </span><span class="si">{</span><span class="n">tmp_hqic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">tmp_hqic</span> <span class="o">&lt;</span> <span class="n">best_hqic</span><span class="p">:</span>
+                    <span class="n">best_hqic</span> <span class="o">=</span> <span class="n">tmp_hqic</span>
+                    <span class="n">best_orderhqic</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">best_mdl</span> <span class="o">=</span> <span class="n">tmp_mdl</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to fit ARIMA(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best HQIC: </span><span class="si">{</span><span class="n">best_hqic</span><span class="si">}</span><span class="s2"> with order </span><span class="si">{</span><span class="n">best_orderhqic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Testing model ARIMA(0, 0, 0)
+Model HQIC: 102293.77842494099
+Testing model ARIMA(0, 0, 1)
+Model HQIC: 72895.0524395064
+Testing model ARIMA(0, 0, 2)
+Model HQIC: 69211.00832967929
+Testing model ARIMA(0, 0, 3)
+Model HQIC: 66532.70644798772
+Testing model ARIMA(0, 0, 4)
+Model HQIC: 71790.56635844451
+Testing model ARIMA(0, 1, 0)
+Model HQIC: 56341.10486655025
+Testing model ARIMA(0, 1, 1)
+Model HQIC: 56341.62973693076
+Testing model ARIMA(0, 1, 2)
+Model HQIC: 56342.95698695637
+Testing model ARIMA(0, 1, 3)
+Model HQIC: 56345.66059812145
+Testing model ARIMA(0, 1, 4)
+Model HQIC: 56345.85126743936
+Testing model ARIMA(0, 2, 0)
+Model HQIC: 58843.95797339188
+Testing model ARIMA(0, 2, 1)
+Model HQIC: 56335.623059260346
+Testing model ARIMA(0, 2, 2)
+Model HQIC: 56336.09766990547
+Testing model ARIMA(0, 2, 3)
+Model HQIC: 56337.4830220368
+Testing model ARIMA(0, 2, 4)
+Model HQIC: 56340.21585486427
+Testing model ARIMA(1, 0, 0)
+Model HQIC: 56372.560691264895
+Testing model ARIMA(1, 0, 1)
+Model HQIC: 56373.10624080587
+Testing model ARIMA(1, 0, 2)
+Model HQIC: 56374.37839358868
+Testing model ARIMA(1, 0, 3)
+Model HQIC: 56377.035279133685
+Testing model ARIMA(1, 0, 4)
+Model HQIC: 56380.993938361935
+Testing model ARIMA(1, 1, 0)
+Model HQIC: 56341.41947333422
+Testing model ARIMA(1, 1, 1)
+Model HQIC: 56344.29625869519
+Testing model ARIMA(1, 1, 2)
+Model HQIC: 56341.80034313016
+Testing model ARIMA(1, 1, 3)
+Model HQIC: 56345.65969466274
+Testing model ARIMA(1, 1, 4)
+Model HQIC: 56348.932591676145
+Testing model ARIMA(1, 2, 0)
+Model HQIC: 57704.204279501144
+Testing model ARIMA(1, 2, 1)
+Model HQIC: 56335.89290485461
+Testing model ARIMA(1, 2, 2)
+Model HQIC: 56339.721925993406
+Testing model ARIMA(1, 2, 3)
+Model HQIC: 56344.49586691992
+Testing model ARIMA(1, 2, 4)
+Model HQIC: 56344.99618105411
+Testing model ARIMA(2, 0, 0)
+Model HQIC: 56372.92464857188
+Testing model ARIMA(2, 0, 1)
+Model HQIC: 56380.857912767766
+Testing model ARIMA(2, 0, 2)
+Model HQIC: 56372.11127788042
+Testing model ARIMA(2, 0, 3)
+Model HQIC: 56375.21621704669
+Testing model ARIMA(2, 0, 4)
+Model HQIC: 56381.089002041015
+Testing model ARIMA(2, 1, 0)
+Model HQIC: 56343.05785674192
+Testing model ARIMA(2, 1, 1)
+Model HQIC: 56341.61101294214
+Testing model ARIMA(2, 1, 2)
+Model HQIC: 56344.70908407644
+Testing model ARIMA(2, 1, 3)
+Model HQIC: 56349.90416605346
+Testing model ARIMA(2, 1, 4)
+Model HQIC: 56331.86018518332
+Testing model ARIMA(2, 2, 0)
+Model HQIC: 57273.49236013583
+Testing model ARIMA(2, 2, 1)
+Model HQIC: 56337.59798530622
+Testing model ARIMA(2, 2, 2)
+Model HQIC: 56344.34804862283
+Testing model ARIMA(2, 2, 3)
+Model HQIC: 56348.413320693195
+Testing model ARIMA(2, 2, 4)
+Model HQIC: 56329.28681253959
+Testing model ARIMA(3, 0, 0)
+Model HQIC: 56374.478089126984
+Testing model ARIMA(3, 0, 1)
+Model HQIC: 56381.145322137614
+Testing model ARIMA(3, 0, 2)
+Model HQIC: 56383.39019251257
+Testing model ARIMA(3, 0, 3)
+Model HQIC: 56380.78798932205
+Testing model ARIMA(3, 0, 4)
+Model HQIC: 56381.01522958314
+Testing model ARIMA(3, 1, 0)
+Model HQIC: 56345.55490657571
+Testing model ARIMA(3, 1, 1)
+Model HQIC: 56345.7024443254
+Testing model ARIMA(3, 1, 2)
+Model HQIC: 56349.98651435263
+Testing model ARIMA(3, 1, 3)
+Model HQIC: 56353.98207519901
+Testing model ARIMA(3, 1, 4)
+Model HQIC: 56341.24232435714
+Testing model ARIMA(3, 2, 0)
+Model HQIC: 57029.059656378624
+Testing model ARIMA(3, 2, 1)
+Model HQIC: 56340.1387824879
+Testing model ARIMA(3, 2, 2)
+Model HQIC: 56344.98522822769
+Testing model ARIMA(3, 2, 3)
+Model HQIC: 56330.10358632149
+Testing model ARIMA(3, 2, 4)
+Model HQIC: 56329.096115254746
+Testing model ARIMA(4, 0, 0)
+Model HQIC: 56376.943672538815
+Testing model ARIMA(4, 0, 1)
+Model HQIC: 56380.876125386145
+Testing model ARIMA(4, 0, 2)
+Model HQIC: 56382.16897615778
+Testing model ARIMA(4, 0, 3)
+Model HQIC: 56371.115371526925
+Testing model ARIMA(4, 0, 4)
+Model HQIC: 56375.850039927594
+Testing model ARIMA(4, 1, 0)
+Model HQIC: 56346.43401056358
+Testing model ARIMA(4, 1, 1)
+Model HQIC: 56349.071217587596
+Testing model ARIMA(4, 1, 2)
+Model HQIC: 56352.95732895449
+Testing model ARIMA(4, 1, 3)
+Model HQIC: 56357.84415559399
+Testing model ARIMA(4, 1, 4)
+Model HQIC: 56323.56644985171
+Testing model ARIMA(4, 2, 0)
+Model HQIC: 56885.76744674338
+Testing model ARIMA(4, 2, 1)
+Model HQIC: 56341.07674891106
+Testing model ARIMA(4, 2, 2)
+Model HQIC: 56348.535789786605
+Testing model ARIMA(4, 2, 3)
+Model HQIC: 56358.907944051505
+Testing model ARIMA(4, 2, 4)
+Model HQIC: 56332.81015506593
+Best HQIC: 56323.56644985171 with order (4, 1, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como podemos ver, el mejor orden de los valore P, D, Q elegidos son Arima(4,1,4)</p>
+<p>Implementamos el modelo con los datos obtenidos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modelHqic</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">best_orderhqic</span><span class="p">)</span>
+<span class="n">model_arimaHqic</span> <span class="o">=</span> <span class="n">modelHqic</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_arimaHqic</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                  close   No. Observations:                 3471
+Model:                 ARIMA(4, 1, 4)   Log Likelihood              -28142.899
+Date:                Mon, 15 Apr 2024   AIC                          56303.798
+Time:                        18:36:11   BIC                          56359.165
+Sample:                             0   HQIC                         56323.566
+                               - 3471                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+ar.L1         -1.0014      0.023    -43.454      0.000      -1.047      -0.956
+ar.L2         -0.3394      0.010    -34.884      0.000      -0.359      -0.320
+ar.L3         -1.0378      0.010   -106.985      0.000      -1.057      -1.019
+ar.L4         -0.8984      0.022    -41.487      0.000      -0.941      -0.856
+ma.L1          0.9595      0.027     35.720      0.000       0.907       1.012
+ma.L2          0.3076      0.010     31.301      0.000       0.288       0.327
+ma.L3          1.0332      0.010    104.911      0.000       1.014       1.052
+ma.L4          0.8735      0.026     34.071      0.000       0.823       0.924
+sigma2      6.563e+05   5878.822    111.641      0.000    6.45e+05    6.68e+05
+===================================================================================
+Ljung-Box (L1) (Q):                   0.63   Jarque-Bera (JB):             32376.75
+Prob(Q):                              0.43   Prob(JB):                         0.00
+Heteroskedasticity (H):             254.63   Skew:                            -0.12
+Prob(H) (two-sided):                  0.00   Kurtosis:                        17.96
+===================================================================================
+
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gráfica de residuos del modelo ARIMA HQIC</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residualHqic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">model_arimaHqic</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
+<span class="n">residualHqic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">5</span><span class="p">));</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/aff2f79dff43874379daa3b9e824f650524970664f7c0b557db4d5393b1e72a9.png" src="_images/aff2f79dff43874379daa3b9e824f650524970664f7c0b557db4d5393b1e72a9.png" />
+</div>
+</div>
+<p>Los errores residuales parecen fluctuar alrededor de una media de cero y tienen una varianza uniforme.</p>
+<p>Función ARIMA Rolling</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arimahqic_rolling</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">horizon</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+   
+    <span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>  
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)):</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">best_orderhqic</span><span class="p">)</span>
+        <span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="n">horizon</span><span class="p">)</span>
+        <span class="n">yhat</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  
+        <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+        
+        
+        <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>  
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;predicted=</span><span class="si">{</span><span class="n">yhat</span><span class="si">}</span><span class="s1">, expected=</span><span class="si">{</span><span class="n">test</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Código para las predicciones por cada Horizonte</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_list</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  
+<span class="n">test_list</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  
+<span class="n">horizontes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>  
+
+<span class="n">predicciones_por_horizontehqic</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">horizontes</span><span class="p">:</span>
+    <span class="n">y_predicthqic</span> <span class="o">=</span> <span class="n">arimahqic_rolling</span><span class="p">(</span><span class="n">train_list</span><span class="p">,</span> <span class="n">test_list</span><span class="p">,</span> <span class="n">horizon</span><span class="o">=</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">predicciones_por_horizontehqic</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_predicthqic</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Predicciones para horizonte de </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> días: </span><span class="si">{</span><span class="n">y_predicthqic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted=67440.09142332648, expected=61912.7734375
+predicted=61519.363058482275, expected=67913.671875
+predicted=67450.0178722883, expected=65491.390625
+predicted=65902.87979241333, expected=63778.76171875
+predicted=64095.847412581476, expected=64062.203125
+predicted=63597.78738057375, expected=67234.171875
+predicted=66977.71833493585, expected=69958.8125
+predicted=70029.1284200867, expected=69987.8359375
+predicted=69921.26731722837, expected=69455.34375
+predicted=69440.61758156569, expected=70744.953125
+predicted=70845.45637579926, expected=69892.828125
+predicted=69726.67685308737, expected=69645.3046875
+predicted=69681.39070497334, expected=71333.6484375
+predicted=71238.31577554984, expected=69702.1484375
+predicted=69883.77927621691, expected=65446.97265625
+predicted=65404.609049682964, expected=65980.8125
+predicted=65962.6533303559, expected=68508.84375
+predicted=68192.51992213874, expected=67837.640625
+predicted=67880.40072694229, expected=68896.109375
+predicted=69073.85788996144, expected=69362.5546875
+predicted=69783.55304217587, expected=71631.359375
+predicted=71754.79625461045, expected=69139.015625
+predicted=69108.28192988042, expected=70587.8828125
+predicted=70522.25188001963, expected=70060.609375
+predicted=69743.87857427546, expected=67195.8671875
+predicted=67118.43563163547, expected=63821.47265625
+predicted=63755.920252444696, expected=65738.7265625
+predicted=65728.49894713458, expected=63445.91796875
+Predicciones para horizonte de 7 días: [67440.09142332648, 61519.363058482275, 67450.0178722883, 65902.87979241333, 64095.847412581476, 63597.78738057375, 66977.71833493585, 70029.1284200867, 69921.26731722837, 69440.61758156569, 70845.45637579926, 69726.67685308737, 69681.39070497334, 71238.31577554984, 69883.77927621691, 65404.609049682964, 65962.6533303559, 68192.51992213874, 67880.40072694229, 69073.85788996144, 69783.55304217587, 71754.79625461045, 69108.28192988042, 70522.25188001963, 69743.87857427546, 67118.43563163547, 63755.920252444696, 65728.49894713458]
+predicted=67624.49430116087, expected=61912.7734375
+predicted=61106.73645056529, expected=67913.671875
+predicted=67475.86283029839, expected=65491.390625
+predicted=66170.58283484384, expected=63778.76171875
+predicted=64434.37147774059, expected=64062.203125
+predicted=63657.20528938497, expected=67234.171875
+predicted=66949.817583601, expected=69958.8125
+predicted=70146.93987184862, expected=69987.8359375
+predicted=69887.53720387087, expected=69455.34375
+predicted=69582.80300009777, expected=70744.953125
+predicted=70814.30810989169, expected=69892.828125
+predicted=69781.35983823477, expected=69645.3046875
+predicted=69718.5041278052, expected=71333.6484375
+predicted=71399.71036959227, expected=69702.1484375
+predicted=69969.02523008494, expected=65446.97265625
+predicted=65369.13890897459, expected=65980.8125
+predicted=65931.7324934019, expected=68508.84375
+predicted=68061.82016948827, expected=67837.640625
+predicted=67876.97872757919, expected=68896.109375
+predicted=69109.30205463612, expected=69362.5546875
+predicted=69782.95305332658, expected=71631.359375
+predicted=71490.03967761631, expected=69139.015625
+predicted=69106.76385260512, expected=70587.8828125
+predicted=70450.37981074414, expected=70060.609375
+predicted=70021.5621100698, expected=67195.8671875
+predicted=67051.58271783052, expected=63821.47265625
+predicted=63709.90450568026, expected=65738.7265625
+predicted=65397.951535794884, expected=63445.91796875
+Predicciones para horizonte de 14 días: [67624.49430116087, 61106.73645056529, 67475.86283029839, 66170.58283484384, 64434.37147774059, 63657.20528938497, 66949.817583601, 70146.93987184862, 69887.53720387087, 69582.80300009777, 70814.30810989169, 69781.35983823477, 69718.5041278052, 71399.71036959227, 69969.02523008494, 65369.13890897459, 65931.7324934019, 68061.82016948827, 67876.97872757919, 69109.30205463612, 69782.95305332658, 71490.03967761631, 69106.76385260512, 70450.37981074414, 70021.5621100698, 67051.58271783052, 63709.90450568026, 65397.951535794884]
+predicted=67767.05479866317, expected=61912.7734375
+predicted=61385.235489769504, expected=67913.671875
+predicted=67781.38519906596, expected=65491.390625
+predicted=66390.09323325075, expected=63778.76171875
+predicted=64773.804697824366, expected=64062.203125
+predicted=63770.92791005582, expected=67234.171875
+predicted=67074.83736546268, expected=69958.8125
+predicted=70183.3975171504, expected=69987.8359375
+predicted=69857.57852143735, expected=69455.34375
+predicted=69722.99049735625, expected=70744.953125
+predicted=70752.85011905867, expected=69892.828125
+predicted=69950.2536672365, expected=69645.3046875
+predicted=69714.5142164873, expected=71333.6484375
+predicted=71444.07797621265, expected=69702.1484375
+predicted=69817.56385130918, expected=65446.97265625
+predicted=65359.4456414706, expected=65980.8125
+predicted=65898.74890163161, expected=68508.84375
+predicted=68381.42890280046, expected=67837.640625
+predicted=67871.20217232779, expected=68896.109375
+predicted=69117.36806528956, expected=69362.5546875
+predicted=69578.51522480507, expected=71631.359375
+predicted=71418.40822376286, expected=69139.015625
+predicted=69122.7623851507, expected=70587.8828125
+predicted=70388.80161426104, expected=70060.609375
+predicted=70241.74409262906, expected=67195.8671875
+predicted=67010.94970526981, expected=63821.47265625
+predicted=63689.66729766588, expected=65738.7265625
+predicted=65487.128299678996, expected=63445.91796875
+Predicciones para horizonte de 21 días: [67767.05479866317, 61385.235489769504, 67781.38519906596, 66390.09323325075, 64773.804697824366, 63770.92791005582, 67074.83736546268, 70183.3975171504, 69857.57852143735, 69722.99049735625, 70752.85011905867, 69950.2536672365, 69714.5142164873, 71444.07797621265, 69817.56385130918, 65359.4456414706, 65898.74890163161, 68381.42890280046, 67871.20217232779, 69117.36806528956, 69578.51522480507, 71418.40822376286, 69122.7623851507, 70388.80161426104, 70241.74409262906, 67010.94970526981, 63689.66729766588, 65487.128299678996]
+predicted=67691.30570725372, expected=61912.7734375
+predicted=61137.93305424942, expected=67913.671875
+predicted=67874.7443078992, expected=65491.390625
+predicted=66570.68523636062, expected=63778.76171875
+predicted=65063.91322098072, expected=64062.203125
+predicted=63705.16335817706, expected=67234.171875
+predicted=67076.0932873959, expected=69958.8125
+predicted=70093.54413218072, expected=69987.8359375
+predicted=69821.63935544624, expected=69455.34375
+predicted=69722.44668841663, expected=70744.953125
+predicted=70782.92078951649, expected=69892.828125
+predicted=70013.202853841, expected=69645.3046875
+predicted=69656.77108063217, expected=71333.6484375
+predicted=71320.85765006205, expected=69702.1484375
+predicted=69766.61605046492, expected=65446.97265625
+predicted=65373.756441615216, expected=65980.8125
+predicted=65870.11788329568, expected=68508.84375
+predicted=68434.57498168215, expected=67837.640625
+predicted=67869.3025789077, expected=68896.109375
+predicted=69119.17986125135, expected=69362.5546875
+predicted=69680.5598028224, expected=71631.359375
+predicted=71551.06064541961, expected=69139.015625
+predicted=69145.08318237362, expected=70587.8828125
+predicted=70345.26346836233, expected=70060.609375
+predicted=70068.91918200954, expected=67195.8671875
+predicted=66994.41641205102, expected=63821.47265625
+predicted=63689.77517939315, expected=65738.7265625
+predicted=65754.20960818166, expected=63445.91796875
+Predicciones para horizonte de 28 días: [67691.30570725372, 61137.93305424942, 67874.7443078992, 66570.68523636062, 65063.91322098072, 63705.16335817706, 67076.0932873959, 70093.54413218072, 69821.63935544624, 69722.44668841663, 70782.92078951649, 70013.202853841, 69656.77108063217, 71320.85765006205, 69766.61605046492, 65373.756441615216, 65870.11788329568, 68434.57498168215, 67869.3025789077, 69119.17986125135, 69680.5598028224, 71551.06064541961, 69145.08318237362, 70345.26346836233, 70068.91918200954, 66994.41641205102, 63689.77517939315, 65754.20960818166]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora graficamos los datos de entrenamiento, los datos de prueba y las prediciones obtenida por cada horizonte</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="o">-</span><span class="mi">300</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dates_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">]</span>  
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">horizontes</span><span class="p">):</span>
+   
+    <span class="n">prediction_dates</span> <span class="o">=</span> <span class="n">dates_test</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">predicciones_por_horizontehqic</span><span class="p">[</span><span class="n">h</span><span class="p">])]</span>  
+    <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">prediction_dates</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">predicciones_por_horizontehqic</span><span class="p">[</span><span class="n">h</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Predicciones </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2"> Días&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;MODELO ARIMA PARA VARIOS HORIZONTES&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/73e42d99734996f1f5458d1d523e0774f80b1f4f77a0452bf23220df1fb0a115.png" src="_images/73e42d99734996f1f5458d1d523e0774f80b1f4f77a0452bf23220df1fb0a115.png" />
+</div>
+</div>
+<p>Podemos ver que la predicciones tiene un comportamiento parecido a los datos originales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forecast_accuracy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_predicthqic</span><span class="p">),</span> <span class="s2">&quot;week 1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MAE</th>
+      <th>MSE</th>
+      <th>MAPE</th>
+      <th>RMSE</th>
+      <th>R2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>week 1</th>
+      <td>2039.898291</td>
+      <td>6.756807e+06</td>
+      <td>0.030497</td>
+      <td>2599.38585</td>
+      <td>0.039434</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El R² es bastante bajo, lo que indica que el modelo explica solo un 3.94% de la variabilidad de los datos objetivo.</p>
+<p>Con el metodo rolling forecasting tenemos errores aceptables, lo cual indica que hay espacio para mejorar el modelo, posiblemente mediante la exploración de diferentes enfoques en la modelización</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_predictbic</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlación HQIC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores Reales&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicciones&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Predicciones&#39;)
+</pre></div>
+</div>
+<img alt="_images/a6df12b280aa6021325c0508a5d96405f536dca99f5f14a42ce18bff0b6cfb1e.png" src="_images/a6df12b280aa6021325c0508a5d96405f536dca99f5f14a42ce18bff0b6cfb1e.png" />
+</div>
+</div>
+<p>El gráfico nos muestra puntos dispersos lejos de la línea indican predicciones inexactas.</p>
+</section>
+<section id="test-normalidad">
+<h2>TEST NORMALIDAD<a class="headerlink" href="#test-normalidad" title="Link to this heading">#</a></h2>
+<p>El supuesto de normalidad implica que los residuos deben distribuirse de forma normal.</p>
+<p>Aplicamos el Test de <strong>Shapiro-Wilk</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">residualAic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Estadístico de Shapiro-Wilk:&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;P-valor:&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La distribución de los residuos parece normal (no se rechaza H0).&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;La distribución de los residuos no parece normal (se rechaza H0).&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico de Shapiro-Wilk: 0.7118056363173315
+P-valor: 6.419744473043037e-61
+La distribución de los residuos no parece normal (se rechaza H0).
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado estadístico de Shapiro-Wilk: <strong>0.7118</strong> indica una desviación significativa de la normalidad.</p>
+</section>
+<section id="test-de-independencia">
+<h2>TEST DE INDEPENDENCIA<a class="headerlink" href="#test-de-independencia" title="Link to this heading">#</a></h2>
+<p>Los residuos deben ser independientes uno del otro</p>
+<p>Aplicamos el Test de <strong>Durbin-Watson</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dw_stat</span> <span class="o">=</span> <span class="n">durbin_watson</span><span class="p">(</span><span class="n">residualAic</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Estadístico de Durbin-Watson:&#39;</span><span class="p">,</span> <span class="n">dw_stat</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">dw_stat</span> <span class="o">&lt;</span> <span class="mf">1.5</span> <span class="ow">or</span> <span class="n">dw_stat</span> <span class="o">&gt;</span> <span class="mf">2.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Posible autocorrelación (los residuos no son independientes).&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No hay evidencia de autocorrelación importante (los residuos parecen independientes).&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estadístico de Durbin-Watson: [1.97156505]
+No hay evidencia de autocorrelación importante (los residuos parecen independientes).
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado estadístico de Durbin-Watson: <strong>1.971</strong>  indica la presencia de autocorrelación en los residuos del modelo. Esto significa que un residuo tiene una alta probabilidad de ser seguido por otro residuo.</p>
+</section>
+<section id="conclusiones">
+<h2>CONCLUSIONES<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>Se logro configurar los modelos predictivo ARIMA que incluso no cumpliendo con los supuestos de estacionariedad de la serie temporal lograron ajustarse a las predicciones.</p>
+<p>Vimos que la metodología Rolling forecasting predice mejor los precios de Bitcoin, debido a que tiene la  capacidad para adaptarse a su naturaleza volátil y cambiante.</p>
+<p>Se recomienda explorar nuevas técnicas de modelamiento de series temporales para encontrar un mejor rendimiento en cuanto a la predicción.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Serie De Tiempo</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-1">PUNTO 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-2">PUNTO 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-3">PUNTO 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-4">PUNTO 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#punto-5">PUNTO 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-normalidad">TEST NORMALIDAD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-de-independencia">TEST DE INDEPENDENCIA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">CONCLUSIONES</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kadir Ortega - Elianna Gomez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
